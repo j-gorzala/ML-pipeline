@@ -1,0 +1,60 @@
+global_params:
+  #problem: 'classification'
+  problem: 'regression'
+
+sample_params:
+  data_train_filename: 'train'
+  data_test_filename: 'test'
+
+data_preprocessing_params:
+  imputer: false # PARAMETR
+  imputer_k_value: 5 # PARAMETR
+  standard_scaling: true # PARAMETR
+  clustering: true # PARAMETR
+  n_clusters: 2 # PARAMETR
+  target_column: 'SalePrice'
+  index_column: 'Id'
+  drop_columns: ['Id']
+
+feature_selection_params:
+  use_clustering: true # PARAMETR
+  boruta_shap_n_trials: 100
+
+data_science_params:
+  use_shortlist: false # PARAMETR
+  cv_n_splits: 5 # PARAMETR
+  use_clustering: false # PARAMETR
+  n_estimators: 500
+  early_stopping_rounds: 30
+  booster: 'gbtree'
+  verbosity: 0
+  nthread: -1
+  eta: 0.3
+  max_depth: 6
+  min_child_weight: 1
+  subsample: 1
+  colsample_bytree: 1
+  overfit_penalty_factor: 0.2
+  crossval_penalty_factor: 0.2
+
+hyperopt_params:
+  use_shortlist: false # PARAMETR
+  cv_n_splits: 5 # PARAMETR
+  use_clustering: true # PARAMETR
+  hyperopt_max_evals: 50
+  overfit_penalty_factor: 0.2
+  crossval_penalty_factor: 0.2
+
+prediction_params:
+  use_clustering: true # PARAMETR
+  model_name: 'hyperopt_model'
+
+paths:
+  input_data: 'data/input_data'
+  feature_selection: 'data/feature_selection'
+  eda_reports: 'data/eda_reports'
+  validation: 'data/validation'
+  model: 'data/model'
+  hyperopt: 'data/hyperopt'
+  prediction: 'data/prediction'
+  preprocessing: 'data/preprocessing'
